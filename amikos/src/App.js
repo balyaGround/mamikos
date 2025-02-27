@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/" element={<LoginSelection />} />
         <Route path="/login-pencari" element={<PencariKosLogin onLogin={handleLogin} />} />
         <Route path="/login-pemilik" element={<PemilikKosLogin onLogin={handleLogin} />} />
-        <Route path="/main" element={isAuthenticated ? <MainApp /> : <Navigate to="/" />} />
+        <Route path="/*" element={isAuthenticated ? <MainApp /> : <Navigate to="/" />} />
       </Routes>
     </Router>
   );

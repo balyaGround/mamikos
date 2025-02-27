@@ -1,6 +1,6 @@
 // RentalList.js
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const RentalList = ({ rentals }) => {
   if (rentals.length === 0) {
     return <div>No rentals available.</div>;
@@ -24,6 +24,8 @@ const RentalList = ({ rentals }) => {
                 Harga Sewa: Rp {rental.harga_sewa ? rental.harga_sewa.toLocaleString() : 'Tidak Tersedia'} <br />
                 Fasilitas: {rental.fasilitas || 0}
               </p>
+              <Link to={`/purchase/${rental.id}`} className="btn btn-success">Rent Now</Link>
+            
             </div>
           </div>
         </div>

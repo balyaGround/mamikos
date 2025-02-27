@@ -6,7 +6,8 @@ import RentalList from './RentalList';
 import '../App.css';
 import Footer from './Footer';
 import Mabac from './mabac';
-
+import Purchase from './Purchase';
+import { Routes, Route } from 'react-router-dom';
 const MainApp = () => {
   const [rentals, setRentals] = useState([]); // State to hold rental data
   const [filteredRentals, setFilteredRentals] = useState([]); // State for filtered rentals
@@ -50,14 +51,22 @@ const MainApp = () => {
     <div>
       <Header />
       <div className="container mt-4">
-        <div className="row">
-          <div className="col-md-3">
-            <Mabac onApplyFilters={handleApplyFilters} />
-          </div>
-          <div className="col-md-9">
-            <RentalList rentals={filteredRentals} />
-          </div>
-        </div>
+        <Routes>
+          <Route
+            path="/main"
+            element={
+              <div className="row">
+                <div className="col-md-3">
+                  <Mabac onApplyFilters={handleApplyFilters} />
+                </div>
+                <div className="col-md-9">
+                  <RentalList rentals={filteredRentals} />
+                </div>
+              </div>
+            }
+          />
+          <Route path="/purchase/:id" element={<Purchase rentals={rentals} />} />
+        </Routes>
       </div>
       <Footer />
     </div>
