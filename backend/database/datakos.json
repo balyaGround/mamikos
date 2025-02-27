@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "name": "Rental A",
+        "rent_price": 2400000,
+        "distance_from_campus": 0.8,
+        "cleanliness": 8,
+        "facilities": 9,
+        "security": 7
+    },
+    {
+        "id": 2,
+        "name": "Rental B",
+        "rent_price": 2300000,
+        "distance_from_campus": 1.2,
+        "cleanliness": 6,
+        "facilities": 8,
+        "security": 6
+    },
+    {
+        "id": 3,
+        "name": "Rental C",
+        "rent_price": 2500000,
+        "distance_from_campus": 1.0,
+        "cleanliness": 9,
+        "facilities": 8,
+        "security": 8
+    },
+    {
+        "id": 4,
+        "name": "Rental D",
+        "rent_price": 2000000,
+        "distance_from_campus": 1.5,
+        "cleanliness": 7,
+        "facilities": 7,
+        "security": 5
+    },
+    {
+        "id": 5,
+        "name": "Rental E",
+        "rent_price": 2700000,
+        "distance_from_campus": 0.5,
+        "cleanliness": 10,
+        "facilities": 10,
+        "security": 9
+    },
+    {
+        "id": 6,
+        "name": "Rental F",
+        "rent_price": 2200000,
+        "distance_from_campus": 0.9,
+        "cleanliness": 8,
+        "facilities": 6,
+        "security": 7
+    },
+    {
+        "id": 7,
+        "name": "Rental G",
+        "rent_price": 2400000,
+        "distance_from_campus": 1.3,
+        "cleanliness": 6,
+        "facilities": 9,
+        "security": 6
+    },
+    {
+        "id": 8,
+        "name": "Rental H",
+        "rent_price": 2600000,
+        "distance_from_campus": 0.7,
+        "cleanliness": 9,
+        "facilities": 8,
+        "security": 8
+    },
+    {
+        "id": 9,
+        "name": "Rental I",
+        "rent_price": 2300000,
+        "distance_from_campus": 1.1,
+        "cleanliness": 7,
+        "facilities": 6,
+        "security": 5
+    },
+    {
+        "id": 10,
+        "name": "Rental J",
+        "rent_price": 2100000,
+        "distance_from_campus": 1.6,
+        "cleanliness": 6,
+        "facilities": 8,
+        "security": 6
+    },
+    {
+        "id": 11,
+        "name": "Rental K",
+        "rent_price": 2800000,
+        "distance_from_campus": 0.4,
+        "cleanliness": 9,
+        "facilities": 10,
+        "security": 9
+    },
+    {
+        "id": 12,
+        "name": "Rental L",
+        "rent_price": 2400000,
+        "distance_from_campus": 1.4,
+        "cleanliness": 8,
+        "facilities": 7,
+        "security": 7
+    },
+    {
+        "id": 13,
+        "name": "Rental M",
+        "rent_price": 2500000,
+        "distance_from_campus": 0.3,
+        "cleanliness": 10,
+        "facilities": 9,
+        "security": 8
+    },
+    {
+        "id": 14,
+        "name": "Rental N",
+        "rent_price": 2300000,
+        "distance_from_campus": 1.0,
+        "cleanliness": 7,
+        "facilities": 6,
+        "security": 5
+    },
+    {
+        "id": 15,
+        "name": "Rental O",
+        "rent_price": 2600000,
+        "distance_from_campus": 0.6,
+        "cleanliness": 9,
+        "facilities": 10,
+        "security": 8
+    },
+    {
+        "id": 16,
+        "name": "Rental P",
+        "rent_price": 2000000,
+        "distance_from_campus": 1.5,
+        "cleanliness": 6,
+        "facilities": 8,
+        "security": 6
+    },
+    {
+        "id": 17,
+        "name": "Rental Q",
+        "rent_price": 2700000,
+        "distance_from_campus": 0.8,
+        "cleanliness": 9,
+        "facilities": 9,
+        "security": 7
+    },
+    {
+        "id": 18,
+        "name": "Rental R",
+        "rent_price": 2500000,
+        "distance_from_campus": 1.2,
+        "cleanliness": 8,
+        "facilities": 7,
+        "security": 6
+    },
+    {
+        "id": 19,
+        "name": "Rental S",
+        "rent_price": 2400000,
+        "distance_from_campus": 1.3,
+        "cleanliness": 7,
+        "facilities": 8,
+        "security": 5
+    },
+    {
+        "id": 20,
+        "name": "Rental T",
+        "rent_price": 2200000,
+        "distance_from_campus": 1.1,
+        "cleanliness": 6,
+        "facilities": 9,
+        "security": 6
+    }
+]

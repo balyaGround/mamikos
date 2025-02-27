@@ -1,0 +1,60 @@
+/* Header.css */
+.navbar-custom {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+  }
+  
+  .navbar-custom .navbar-logo {
+    max-height: 100px;
+  }
+  
+  .navbar-custom .navbar-toggler {
+    border: none;
+  }
+  
+  .navbar-custom .nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 0 15px;
+  }
+  
+  .navbar-custom .nav-link:hover {
+    color: #007bff;
+  }
+  
+  .navbar-custom .search-form {
+    width: 50%;
+  }
+  
+  .navbar-custom .form-control {
+    border-radius: 30px;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .navbar-custom .search-button {
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 30px;
+    padding: 8px 20px;
+    border: none;
+  }
+  
+  .navbar-custom .search-button:hover {
+    background-color: #218838;
+  }
+  
+  .navbar-custom .login-button {
+    margin-left: 15px;
+    padding: 6px 20px;
+    border-radius: 30px;
+    border-color: #28a745;
+    color: #28a745;
+  }
+  
+  .navbar-custom .login-button:hover {
+    background-color: #28a745;
+    color: #fff;
+  }
+  

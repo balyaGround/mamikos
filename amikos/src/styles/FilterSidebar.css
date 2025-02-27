@@ -1,0 +1,24 @@
+/* FilterSidebar.css */
+.filter-sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+  }
+  
+  .filter-sidebar h5 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .filter-sidebar .form-control,
+  .filter-sidebar .form-check-input {
+    margin-bottom: 15px;
+  }
+  
+  .filter-sidebar .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
