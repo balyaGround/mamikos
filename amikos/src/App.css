@@ -65,6 +65,28 @@
   color: #61dafb;
 }
 
+/* Booking Card Styling */
+.booking-card {
+  border-radius: 15px !important;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease-in-out !important;
+  padding: 20px !important;
+  background-color: white !important;
+}
+
+.booking-card:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.text-gray-800 {
+  color: #333 !important;
+}
+
+.text-gray-600 {
+  color: #555 !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import "../App.css"; 
 
 const BookingsPage = () => {
   const [bookings, setBookings] = useState([]);
@@ -29,20 +30,28 @@ const BookingsPage = () => {
   }, [navigate]);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Your Bookings</h1>
+    <div className="container my-5">
+      <h1 className="text-gray-800 text-center">Your Bookings</h1>
+
+      {/* ✅ Back to Login Button */}
+      <div className="text-center my-3">
+        <button onClick={() => navigate("/")} className="btn btn-success">
+          🔙 Back to Login
+        </button>
+      </div>
+
       {bookings.length === 0 ? (
-        <p>No bookings found for your property.</p>
+        <p className="text-gray-600 text-center">No bookings found for your property.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="row">
           {bookings.map((booking) => (
-            <div key={booking.id} className="border rounded-lg p-4 shadow-lg">
-              <h2 className="text-lg font-semibold">{booking.nama_tempat}</h2>
-              <p className="text-gray-600">Rental ID: {booking.rentalId}</p>
-              <p className="text-gray-600">Harga: Rp {booking.harga_sewa}</p>
-              <p className="text-gray-600">
-                Booked At: {new Date(booking.bookedAt).toLocaleString()}
-              </p>
+            <div key={booking.id} className="col-md-4">
+              <div className="booking-card card p-3">
+                <h2 className="text-gray-800">{booking.nama_tempat}</h2>
+                <p className="text-gray-600">Rental ID: <strong>{booking.rentalId}</strong></p>
+                <p className="text-gray-600">Harga: <strong className="text-success">Rp {booking.harga_sewa}</strong></p>
+                <p className="text-gray-600">Booked At: <strong>{new Date(booking.bookedAt).toLocaleString()}</strong></p>
+              </div>
             </div>
           ))}
         </div>
