@@ -27,9 +27,10 @@ const PemilikKosLogin = ({ onLogin }) => {
       if (querySnapshot.empty) {
         setError('Invalid email or password');
       } else {
-        // If a match is found, login is successful
+        const pemilikData = querySnapshot.docs[0].data();
+        localStorage.setItem("pemilik_kos", JSON.stringify(pemilikData));
         onLogin(); // Set authentication status in App.js
-        navigate('/main'); // Redirect to the main app
+        navigate('/bookings'); // Redirect to the main app
       }
     } catch (err) {
       setError('Error logging in, please try again');

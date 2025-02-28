@@ -5,7 +5,7 @@ import LoginSelection from './components/LoginSelection';
 import PencariKosLogin from './components/PencariKosLogin';
 import PemilikKosLogin from './components/PemilikKosLogin';
 import MainApp from './components/MainApp';
-
+import BookingsPage from './components/BookingPage';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -18,6 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LoginSelection />} />
         <Route path="/login-pencari" element={<PencariKosLogin onLogin={handleLogin} />} />
+        <Route path="/bookings" element={<BookingsPage />} />
         <Route path="/login-pemilik" element={<PemilikKosLogin onLogin={handleLogin} />} />
         <Route path="/*" element={isAuthenticated ? <MainApp /> : <Navigate to="/" />} />
       </Routes>
