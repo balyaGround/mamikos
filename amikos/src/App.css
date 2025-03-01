@@ -87,6 +87,16 @@
   color: #555 !important;
 }
 
+
+/* Rental Image Styling */
+.rental-image {
+  width: 100%; /* Make the image responsive */
+  height: 200px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensures images fill the area without distortion */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

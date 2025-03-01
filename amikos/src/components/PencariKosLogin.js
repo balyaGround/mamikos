@@ -29,7 +29,7 @@ const PencariKosLogin = ({ onLogin }) => {
       } else {
         // If a match is found, login is successful
         onLogin(); // Set authentication status in App.js
-        navigate('/main'); // Redirect to the main app
+        navigate('/home'); // Redirect to the main app
       }
     } catch (err) {
       setError('Error logging in, please try again');

@@ -1,17 +1,16 @@
-// Purchase.js
-import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React , { useState }  from 'react';
+import { useParams,useNavigate } from 'react-router-dom';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import "../App.css";
 
-const Purchase = ({ rentals }) => {
+const Purchase = ({ rentals = [] }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const rental = rentals.find((r) => r.id === id);
+  const rental = rentals.length > 0 ? rentals.find((r) => r.id === id) : null;
   const [confirming, setConfirming] = useState(false);
   const db = getFirestore();
-
   if (!rental) {
-    return <div>Rental not found.</div>;
+    return <div>Rental not found or still loading...</div>;
   }
 
   const handleConfirmBooking = async () => {
@@ -26,7 +25,7 @@ const Purchase = ({ rentals }) => {
       });
 
       alert('Booking confirmed! Redirecting to main page...');
-      navigate('/main');
+      navigate('/home');
     } catch (error) {
       console.error('Error confirming booking:', error);
       alert('Failed to book. Please try again.');
@@ -35,11 +34,12 @@ const Purchase = ({ rentals }) => {
     }
   };
 
+
   return (
     <div className="container mt-5">
-      <h2>Confirm Booking</h2>
+      <h2 className='text-success'>Confirm Booking</h2>
       <div className="card">
-        {rental.foto && <img src={rental.foto} alt={rental.nama_tempat} className="card-img-top" />}
+        {rental.foto && <img src={rental.foto} alt={rental.nama_tempat} className="card-img-top rental-image" />}
         <div className="card-body">
           <h5 className="card-title text-success">{rental.nama_tempat}</h5>
           <p className="card-text">
@@ -61,5 +61,4 @@ const Purchase = ({ rentals }) => {
     </div>
   );
 };
-
 export default Purchase;

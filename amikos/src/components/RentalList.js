@@ -1,6 +1,7 @@
 // RentalList.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "../App.css";
 const RentalList = ({ rentals }) => {
   if (rentals.length === 0) {
     return <div>No rentals available.</div>;
@@ -13,7 +14,11 @@ const RentalList = ({ rentals }) => {
         <div key={rental.id} className="col-md-4 mb-4">
           <div className="card">
             {rental.foto && (
-              <img src={rental.foto} alt={rental.nama_tempat} className="card-img-top" />
+              <img 
+              src={rental.foto} 
+              alt={rental.nama_tempat} 
+              className="card-img-top rental-image"
+            />
             )}
             <div className="card-body">
               <h5 className="card-title text-success">{rental.nama_tempat || "Nama Tidak Tersedia"}</h5>

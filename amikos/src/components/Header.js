@@ -21,7 +21,7 @@ const Header = () => {
             <Button variant="outline-success" className="login-button">Search</Button>
           </Form>
           <Nav className="ml-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
             <Button variant="outline-success" className="login-button" href="/">Login</Button>

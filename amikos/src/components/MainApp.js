@@ -6,17 +6,14 @@ import RentalList from './RentalList';
 import '../App.css';
 import Footer from './Footer';
 import Mabac from './mabac';
-import Purchase from './Purchase';
-import { Routes, Route } from 'react-router-dom';
-const MainApp = () => {
-  const [rentals, setRentals] = useState([]); // State to hold rental data
+const MainApp = ({ setRentals }) => { // State to hold rental data
   const [filteredRentals, setFilteredRentals] = useState([]); // State for filtered rentals
 
   const db = getFirestore(); // Initialize Firestore
 
   const handleApplyFilters = (filters) => {
     // Filter logic based on MABAC criteria
-    const filtered = rentals.filter((rental) => {
+    const filtered = setRentals.filter((rental) => {
       return (
         rental.harga_sewa <= filters.rent_price &&
         rental.jarak_dari_kampus <= filters.distance_from_campus &&
@@ -49,27 +46,19 @@ const MainApp = () => {
 
   return (
     <div>
-      <Header />
-      <div className="container mt-4">
-        <Routes>
-          <Route
-            path="/main"
-            element={
-              <div className="row">
-                <div className="col-md-3">
-                  <Mabac onApplyFilters={handleApplyFilters} />
-                </div>
-                <div className="col-md-9">
-                  <RentalList rentals={filteredRentals} />
-                </div>
-              </div>
-            }
-          />
-          <Route path="/purchase/:id" element={<Purchase rentals={rentals} />} />
-        </Routes>
+    <Header />
+    <div className="container mt-4">
+      <div className="row">
+        <div className="col-md-3">
+          <Mabac onApplyFilters={handleApplyFilters} />
+        </div>
+        <div className="col-md-9">
+          <RentalList rentals={filteredRentals} />
+        </div>
       </div>
-      <Footer />
     </div>
+    <Footer />
+  </div>
   );
 };
 
