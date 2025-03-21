@@ -6,19 +6,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../styles/Rentallist.css';
 
-const RentalList = ({ rentals }) => {
+const RentalList = ({  rentals, showLoginAlert, isAuthenticated }) => {
   if (!rentals || rentals.length === 0) {
     return <div className="no-rentals">No rentals available.</div>;
   }
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false, // Disable infinite scroll when filtering
     speed: 500,
     slidesToShow: Math.min(rentals.length, 3), // Adjust based on filtered results
     slidesToScroll: 1,
     autoplay: rentals.length > 3, // Only autoplay if enough rentals exist
-    autoplaySpeed: 2000,
+    autoplaySpeed: 1500,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: Math.min(rentals.length, 2) } },
       { breakpoint: 768, settings: { slidesToShow: 1 } }
@@ -34,7 +34,11 @@ const RentalList = ({ rentals }) => {
             <div className="rental-card">
               
               {/* Rent Button on Top Right */}
-              <Link to={`/purchase/${rental.id}`} className="rent-btn">Rent Now</Link>
+              {isAuthenticated ? (
+                <Link to={`/purchase/${rental.id}`} className="rent-btn">Rent Now</Link>
+              ) : (
+                <p className="rent-btn" onClick={showLoginAlert}>Rent Now</p>
+              )}
 
               {/* Image */}
               {rental.foto && (

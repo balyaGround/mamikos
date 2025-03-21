@@ -91,20 +91,8 @@
   box-shadow: 0 0 8px rgba(37, 117, 252, 0.4);
 }
 
-/* Buttons */
-.btn-success {
-  background: linear-gradient(90deg, #77d77d, #5fbf5f);
-  color: white;
-  font-weight: bold;
-  padding: 12px 25px;
-  border-radius: 30px;
-  transition: 0.3s;
-}
 
-.btn-success:hover {
-  background: linear-gradient(90deg, #5fbf5f, #3da53d);
-  transform: scale(1.05);
-}
+
 
 /* Subtle Animation */
 @keyframes fadeIn {

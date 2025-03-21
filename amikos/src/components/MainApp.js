@@ -6,7 +6,7 @@ import "../App.css";
 import Footer from "./Footer";
 import Mabac from "./MabacFilter";
 
-const MainApp = () => {
+const MainApp = ({ showLoginAlert, isAuthenticated })  => {
   const [rentals, setRentals] = useState([]); // Store all rentals
   const [filteredRentals, setFilteredRentals] = useState([]); // Store filtered rentals
   const db = getFirestore();
@@ -105,7 +105,7 @@ const MainApp = () => {
       </div>
 
       <div className="container mt-4">
-        <RentalList rentals={filteredRentals} />
+        <RentalList rentals={filteredRentals}  showLoginAlert={showLoginAlert} isAuthenticated={isAuthenticated} />
       </div>
 
       <Footer />

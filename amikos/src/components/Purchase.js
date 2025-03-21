@@ -38,7 +38,7 @@ const Purchase = () => {
         bookedAt: new Date().toISOString(),
       });
       alert('Booking confirmed! Redirecting to main page...');
-      navigate('/home');
+      navigate('/');
     } catch (error) {
       console.error('Error confirming booking:', error);
       alert('Failed to book. Please try again.');
