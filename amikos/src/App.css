@@ -13,57 +13,6 @@
   padding: 20px;
 }
 
-/* MABAC Filter Section */
-.mabac-filter-container {
-  background: white;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin: 20px auto;
-  max-width: 1100px;
-  text-align: center;
-}
-
-.mabac-filter-container h2 {
-  margin-bottom: 15px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Horizontal Input Fields in MABAC Filter */
-.mabac-filter {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-  padding: 10px;
-}
-
-.mabac-filter input {
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  width: 160px;
-}
-
-.mabac-filter button {
-  padding: 10px 15px;
-  background: linear-gradient(90deg, #77d77d, #5fbf5f);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.mabac-filter button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #5fbf5f, #3da53d);
-}
 
 /* Enhanced Login Card */
 .login-card {
