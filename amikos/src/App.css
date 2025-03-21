@@ -5,17 +5,7 @@
   color: #333;
 }
 
-.App-header {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(12px + 2vmin);
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+
 
 .container {
   max-width: 1200px;
@@ -92,12 +82,12 @@
   border-radius: 25px;
   padding: 14px;
   font-size: 16px;
-  border: 2px solid #6a11cb;
+  border: 2px solid #77d77d;
   background-color: #fff;
 }
 
 .form-control:focus {
-  border-color: #2575fc;
+  border-color: #5fbf5f;
   box-shadow: 0 0 8px rgba(37, 117, 252, 0.4);
 }
 
