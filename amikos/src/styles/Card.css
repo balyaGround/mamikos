@@ -1,0 +1,118 @@
+/* Rental List Container */
+.rental-list {
+    text-align: center;
+    padding: 30px;
+  }
+  
+  .list-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #28a745;
+    margin-bottom: 20px;
+  }
+  
+  /* Slider Styling */
+  .rental-slider .slick-prev,
+  .rental-slider .slick-next {
+    color: #28a745; /* Green arrows */
+    font-size: 24px;
+    z-index: 10;
+  }
+  
+  .rental-slider .slick-prev:hover,
+  .rental-slider .slick-next:hover {
+    color: #1f8b37; /* Darker green on hover */
+  }
+  
+  .rental-slider .slick-dots li button:before {
+    color: #28a745; /* Green dots */
+  }
+  
+  /* Rental Card */
+  .rental-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 100%;
+  }
+  
+  .rental-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Image Container */
+  .rental-image-container {
+    width: 100%;
+    height: 200px; /* Fixed height */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .rental-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the area */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  
+  /* Placeholder for No Image */
+  .no-image {
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  
+  /* Details Section */
+  .rental-details {
+    padding: 15px;
+    flex-grow: 1;
+  }
+  
+  .rental-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+  
+  .rental-info {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .rental-info span {
+    font-weight: bold;
+  }
+  
+  /* Rent Button */
+  .rent-button {
+    display: block;
+    text-align: center;
+    background: linear-gradient(90deg, #77d77d, #5fbf5f);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s, box-shadow 0.3s ease;
+  }
+  
+  .rent-button:hover {
+    background: linear-gradient(90deg, #5fbf5f, #3da53d);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+  

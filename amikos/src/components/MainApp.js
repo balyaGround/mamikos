@@ -1,4 +1,3 @@
-// MainApp.js
 import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import Header from './Header';
@@ -6,13 +5,12 @@ import RentalList from './RentalList';
 import '../App.css';
 import Footer from './Footer';
 import Mabac from './mabac';
-const MainApp = ({ setRentals }) => { // State to hold rental data
-  const [filteredRentals, setFilteredRentals] = useState([]); // State for filtered rentals
 
-  const db = getFirestore(); // Initialize Firestore
+const MainApp = ({ setRentals }) => {
+  const [filteredRentals, setFilteredRentals] = useState([]);
+  const db = getFirestore();
 
   const handleApplyFilters = (filters) => {
-    // Filter logic based on MABAC criteria
     const filtered = setRentals.filter((rental) => {
       return (
         rental.harga_sewa <= filters.rent_price &&
@@ -22,10 +20,9 @@ const MainApp = ({ setRentals }) => { // State to hold rental data
         rental.keamanan >= filters.security
       );
     });
-    setFilteredRentals(filtered); // Set the filtered rentals
+    setFilteredRentals(filtered);
   };
 
-  // Fetch rentals from Firestore when the component mounts
   useEffect(() => {
     const fetchRentals = async () => {
       try {
@@ -35,7 +32,7 @@ const MainApp = ({ setRentals }) => { // State to hold rental data
           ...doc.data()
         }));
         setRentals(data);
-        setFilteredRentals(data); // Initially display all rentals
+        setFilteredRentals(data);
       } catch (error) {
         console.error('Error fetching rentals:', error);
       }
@@ -46,19 +43,19 @@ const MainApp = ({ setRentals }) => { // State to hold rental data
 
   return (
     <div>
-    <Header />
-    <div className="container mt-4">
-      <div className="row">
-        <div className="col-md-3">
-          <Mabac onApplyFilters={handleApplyFilters} />
-        </div>
-        <div className="col-md-9">
-          <RentalList rentals={filteredRentals} />
-        </div>
+      <Header />
+      
+      {/* Horizontal Filter Bar */}
+      <div className="filter-container">
+        <Mabac onApplyFilters={handleApplyFilters} />
       </div>
+
+      <div className="container mt-4">
+        <RentalList rentals={filteredRentals} />
+      </div>
+
+      <Footer />
     </div>
-    <Footer />
-  </div>
   );
 };
 

@@ -1,82 +1,136 @@
-.App {
+
+
+ .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(12px + 2vmin);
   color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-/* Add this to your CSS file (e.g., index.css or App.css) */
 
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* MABAC Filter Section */
+.mabac-filter-container {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 1100px;
+  text-align: center;
+}
+
+.mabac-filter-container h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Horizontal Input Fields in MABAC Filter */
+.mabac-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 10px;
+}
+
+.mabac-filter input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 160px;
+}
+
+.mabac-filter button {
+  padding: 10px 15px;
+  background: linear-gradient(90deg, #77d77d, #5fbf5f);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mabac-filter button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #5fbf5f, #3da53d);
+}
+
+/* Enhanced Login Card */
 .login-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .login-card:hover {
-  transform: translateY(-5px); /* Slightly raise the card */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
 }
-/* Style for the input fields */
+
+/* Input Fields */
 .form-control {
-  border-radius: 20px;
-  padding: 12px 20px;
+  border-radius: 25px;
+  padding: 14px;
   font-size: 16px;
-  border: 1px solid #90ee90;
-  background-color: #f9f9f9;
+  border: 2px solid #6a11cb;
+  background-color: #fff;
 }
 
 .form-control:focus {
-  border-color: #90ee90;
-  box-shadow: 0 0 5px rgba(144, 238, 144, 0.6);
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37, 117, 252, 0.4);
 }
 
-/* Style for the submit button */
+/* Buttons */
 .btn-success {
-  background-color: #90ee90;
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
+  background: linear-gradient(90deg, #77d77d, #5fbf5f);
+  color: white;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 30px;
+  transition: 0.3s;
 }
 
 .btn-success:hover {
-  background-color: #77d77d;
+  background:  linear-gradient(90deg, #5fbf5f, #3da53d);
+  transform: scale(1.05);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-/* Booking Card Styling */
+/* Rental Cards */
 .booking-card {
-  border-radius: 15px !important;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.3s ease-in-out !important;
-  padding: 20px !important;
-  background-color: white !important;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  padding: 20px;
+  background-color: white;
+  overflow: hidden;
 }
 
 .booking-card:hover {
-  transform: scale(1.05) !important;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .text-gray-800 {
@@ -87,21 +141,126 @@
   color: #555 !important;
 }
 
-
 /* Rental Image Styling */
-.rental-image {
-  width: 100%; /* Make the image responsive */
-  height: 200px; /* Fixed height for uniformity */
-  object-fit: cover; /* Ensures images fill the area without distortion */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+/* .rental-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+} */
+
+/* Subtle Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rental-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Title */
+.menu-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #2f9948;
+  margin-bottom: 40px;
+}
+
+/* Slick Slider */
+.rental-slider {
+  margin: 0 auto;
+  padding: 0 10px; /* Ensures spacing on both sides */
+}
+
+/* Individual Slide */
+.menu-item {
+  padding: 10px; /* Adds spacing between cards */
+}
+
+/* Menu Card */
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 100%; /* Ensures uniform card height */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image */
+.menu-image {
+  width: 100%;
+  max-height: 200px; /* Fix image height */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.menu-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Details */
+.menu-details {
+  flex-grow: 1; /* Ensures content expands equally */
+  padding-top: 15px;
+}
+
+.menu-card-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 10px;
+}
+
+.menu-description {
+  font-size: 18px;
+  color: #2a854d;
+  line-height: 1.6;
+}
+
+/* Rent Button */
+.rent-button {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background: linear-gradient(90deg, #77d77d, #5fbf5f);
+  border-radius: 25px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.rent-button:hover {
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-card {
+    text-align: center;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .menu-details {
+    padding-left: 0;
   }
 }
