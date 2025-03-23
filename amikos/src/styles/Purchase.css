@@ -1,95 +1,119 @@
 /* Main container */
 .purchase-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    background-color: #f9f9f9;
-    padding: 20px;
-  }
-  
-  /* Purchase card */
-  .purchase-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  /* Rental image section */
-  .rental-image-container {
-    position: relative;
-  }
-  
-  .rental-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-  }
-  
-  /* Floating confirm button */
-  .confirm-button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: #2f9948;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
-  }
-  
-  .confirm-button:hover {
-    background-color: #248136;
-  }
-  
-  .confirm-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  /* Rental details section */
-  .rental-details {
-    padding: 20px;
-    text-align: left;
-  }
-  
-  .rental-title {
-    font-size: 22px;
-    color: #2f9948;
-    display: flex;
-    align-items: center;
-  }
-  
-  .success-icon {
-    margin-right: 8px;
-    color: #2f9948;
-  }
-  
-  /* Rental information with icons */
-  .rental-info {
-    font-size: 16px;
-    margin-top: 15px;
-  }
-  
-  .info-icon {
-    margin-right: 8px;
-    color: #2f9948;
-  }
-  
-  /* Loading message */
-  .loading-message {
-    text-align: center;
-    font-size: 18px;
-    color: #555;
-    margin-top: 20px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Purchase card */
+.purchase-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.purchase-card:hover {
+  transform: scale(1.03);
+}
+
+/* Rental image */
+.rental-image-container {
+  position: relative;
+}
+
+.rental-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Rental details */
+.rental-details {
+  padding: 20px;
+  text-align: left;
+}
+
+/* Title with checkmark icon */
+.rental-title {
+  font-size: 22px;
+  color: #2f9948;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Rental information */
+.rental-info {
+  font-size: 16px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Icons */
+.info-icon {
+  color: #2f9948;
+}
+
+/* Facilities styling */
+.facilities-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-height: 80px;
+  overflow-y: auto;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.facilities-item {
+  background: #f8f8f8;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Confirm button */
+.confirm-button {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.confirm-button:hover {
+  background-color: #218838;
+}
+
+.confirm-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Loading message */
+.loading-message {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-top: 20px;
+}

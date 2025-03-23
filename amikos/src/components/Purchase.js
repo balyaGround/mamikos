@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getFirestore, doc, getDoc, collection, addDoc } from 'firebase/firestore';
-import { FaMapMarkerAlt, FaMoneyBillWave, FaShieldAlt, FaStar, FaCheckCircle } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaMoneyBillWave, FaShieldAlt, FaCheckCircle, FaTools } from 'react-icons/fa';
+import Swal from 'sweetalert2';
+import StarRating from './StarRating'; // Import komponen rating bintang
 
 import '../styles/Purchase.css';
+
 const Purchase = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,6 +33,7 @@ const Purchase = () => {
 
   const handleConfirmBooking = async () => {
     setConfirming(true);
+    
     try {
       await addDoc(collection(db, 'bookings'), {
         rentalId: rental.id,
@@ -37,11 +41,26 @@ const Purchase = () => {
         harga_sewa: rental.harga_sewa,
         bookedAt: new Date().toISOString(),
       });
-      alert('Booking confirmed! Redirecting to main page...');
-      navigate('/');
+
+      Swal.fire({
+        title: 'Booking Berhasil!',
+        text: `Kamu telah berhasil memesan ${rental.nama_tempat}.`,
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#28a745'
+      }).then(() => {
+        navigate('/');
+      });
+
     } catch (error) {
       console.error('Error confirming booking:', error);
-      alert('Failed to book. Please try again.');
+      Swal.fire({
+        title: 'Gagal!',
+        text: 'Terjadi kesalahan saat booking. Silakan coba lagi.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#d33'
+      });
     } finally {
       setConfirming(false);
     }
@@ -54,13 +73,11 @@ const Purchase = () => {
   return (
     <div className="purchase-container">
       <div className="purchase-card">
+        
         {/* Rental Image */}
         {rental.foto && (
           <div className="rental-image-container">
             <img src={rental.foto} alt={rental.nama_tempat} className="rental-image" />
-            <button className="confirm-button" onClick={handleConfirmBooking} disabled={confirming}>
-              {confirming ? 'Processing...' : 'Confirm Booking'}
-            </button>
           </div>
         )}
 
@@ -73,10 +90,33 @@ const Purchase = () => {
           <div className="rental-info">
             <p><FaMoneyBillWave className="info-icon" /> <strong>Harga Sewa:</strong> Rp {rental.harga_sewa.toLocaleString()}</p>
             <p><FaMapMarkerAlt className="info-icon" /> <strong>Jarak:</strong> {rental.jarak_dari_kampus} km dari kampus</p>
-            <p><FaStar className="info-icon" /> <strong>Kebersihan:</strong> {rental.kebersihan}/5</p>
-            <p><FaShieldAlt className="info-icon" /> <strong>Keamanan:</strong> {rental.keamanan}/5</p>
-            <p><FaCheckCircle className="info-icon" /> <strong>Fasilitas:</strong> {rental.fasilitas}</p>
+            <p><FaShieldAlt className="info-icon" /> <strong>Keamanan:</strong> {rental.keamanan ? "Ada Satpam ✅" : "Tidak Ada Satpam ❌"}</p>
+            
+            {/* Kebersihan menggunakan rating bintang */}
+            <div className="rental-info">
+              <span className="info-icon">⭐</span> <strong>Kebersihan:</strong>
+              <StarRating rating={rental.kebersihan || 1} />
+            </div>
+
+            {/* Fasilitas */}
+            <div className="rental-info">
+              <FaTools className="info-icon" /> <strong>Fasilitas:</strong>
+              <div className="facilities-container">
+                {Array.isArray(rental.fasilitas) && rental.fasilitas.length > 0 ? (
+                  rental.fasilitas.map((item, index) => (
+                    <div key={index} className="facilities-item">{item}</div>
+                  ))
+                ) : (
+                  <div className="facilities-item">Tidak ada fasilitas</div>
+                )}
+              </div>
+            </div>
           </div>
+
+          {/* Confirm Booking Button */}
+          <button className="confirm-button" onClick={handleConfirmBooking} disabled={confirming}>
+            {confirming ? 'Processing...' : 'Confirm Booking'}
+          </button>
         </div>
       </div>
     </div>
