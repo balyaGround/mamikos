@@ -12,7 +12,7 @@ const PemilikKosModal = ({ show, handleClose }) => {
     kebersihan: 1, // Default 1 bintang
     keamanan: false, // Apakah ada satpam?
     jarak_dari_kampus: 1, // Default 1 km
-    harga_sewa: 0,
+    harga_sewa: '',
     fasilitas: [],
     foto: ''
   });
@@ -34,7 +34,8 @@ const PemilikKosModal = ({ show, handleClose }) => {
         : formData.fasilitas.filter((item) => item !== value);
       setFormData({ ...formData, fasilitas: updatedFasilitas });
     } else if (name === 'harga_sewa') {
-      setFormData({ ...formData, harga_sewa: Number(value) }); 
+      let numericValue = parseInt(value.replace(/\D/g, ''), 10) || 0; // Pastikan angka
+      setFormData({ ...formData, harga_sewa: numericValue });
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -43,19 +44,24 @@ const PemilikKosModal = ({ show, handleClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
+      let dataToSave = {
+        ...formData,
+        harga_sewa: Number(formData.harga_sewa) || 0, // Pastikan Number sebelum dikirim
+      };
+  
       if (formData.foto) {
         const reader = new FileReader();
         reader.onloadend = async () => {
-          const docData = { ...formData, foto: reader.result };
-          await addDoc(collection(db, 'akun_pemilik_kos'), docData);
+          dataToSave.foto = reader.result;
+          await addDoc(collection(db, 'akun_pemilik_kos'), dataToSave);
           alert('Data berhasil ditambahkan!');
           handleClose();
         };
         reader.readAsDataURL(formData.foto);
       } else {
-        await addDoc(collection(db, 'akun_pemilik_kos'), formData);
+        await addDoc(collection(db, 'akun_pemilik_kos'), dataToSave);
         alert('Data berhasil ditambahkan!');
         handleClose();
       }
@@ -104,7 +110,17 @@ const PemilikKosModal = ({ show, handleClose }) => {
 
           <Form.Group>
             <Form.Label>Harga Sewa</Form.Label>
-            <Form.Control type="number" name="harga_sewa" value={formData.harga_sewa} onChange={handleChange} min="100000" max="10000000" required />
+              <Form.Control
+                type="text"
+                name="harga_sewa"
+                value={formData.harga_sewa}
+                onChange={(e) => {
+                  let rawValue = e.target.value.replace(/\D/g, ''); // Hanya angka
+                  setFormData({ ...formData, harga_sewa: rawValue });
+                }}
+                placeholder="Masukkan harga sewa"
+                required
+              />
           </Form.Group>
 
           <Form.Group>
