@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import '../styles/Mabac.css'
+import "../styles/Mabac.css";
+
 const Mabac = ({ onApplyFilters }) => {
   const [filters, setFilters] = useState({
     rent_price: "",
@@ -15,7 +16,7 @@ const Mabac = ({ onApplyFilters }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onApplyFilters(filters); // Send filters to MainApp
+    onApplyFilters(filters);
   };
 
   return (
@@ -24,10 +25,9 @@ const Mabac = ({ onApplyFilters }) => {
       <form className="mabac-filter" onSubmit={handleSubmit}>
         {[
           { name: "rent_price", label: "Max Rent Price" },
-          { name: "distance_from_campus", label: "Max Distance" },
-          { name: "cleanliness", label: "Min Cleanliness" },
-          { name: "facilities", label: "Min Facilities" },
-          { name: "security", label: "Min Security" },
+          { name: "distance_from_campus", label: "Max Distance (km)" },
+          { name: "cleanliness", label: "Min Cleanliness (1-5)" },
+          { name: "facilities", label: "Min Facilities Count" },
         ].map((field) => (
           <div className="input-group" key={field.name}>
             <label htmlFor={field.name}>{field.label}</label>
@@ -40,6 +40,17 @@ const Mabac = ({ onApplyFilters }) => {
             />
           </div>
         ))}
+
+        {/* Security: Satpam atau Tidak */}
+        <div className="input-group">
+          <label htmlFor="security">Keamanan</label>
+          <select id="security" name="security" value={filters.security} onChange={handleChange}>
+            <option value="">Semua</option>
+            <option value="true">Ada Satpam</option>
+            <option value="false">Tidak Ada Satpam</option>
+          </select>
+        </div>
+
         <button type="submit">Apply MABAC</button>
       </form>
     </div>
